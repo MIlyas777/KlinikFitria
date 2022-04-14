@@ -4,8 +4,8 @@ class Tindakan extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library(array('session'));
-        $this->load->model(array('modelTindakan'));
+        $this->load->library('session');
+        $this->load->model('modelTindakan');
     }
 
     public function index()
@@ -42,7 +42,7 @@ class Tindakan extends CI_Controller
 
     function edit($a)
     {
-        $data['tindakan'] = $this->modelTindakan->get_detail($a);
+        $data['list'] = $this->modelTindakan->get_detail($a);
         $this->load->view('template/header');
         $this->load->view('edit_tindakan', $data);
         $this->load->view('template/footer');

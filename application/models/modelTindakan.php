@@ -31,4 +31,21 @@ class ModelTindakan extends CI_Model
         $this->db->where('idtindakan', $a);
         return $this->db->get('tindakan')->row_array();
     }
+
+    function update($a, $id)
+    {
+        $data = [
+            'idtindakan'      =>  $a['idtindakan'],
+            'namatindakan'     =>  $a['namatindakan'],
+            'biaya'  =>  $a['biaya']
+        ];
+        $this->db->where('idtindakan', $id);
+        return $this->db->update('tindakan', $data);
+    }
+
+    function delete($a)
+    {
+        $this->db->where('idtindakan', $a);
+        return $this->db->delete('tindakan');
+    }
 }

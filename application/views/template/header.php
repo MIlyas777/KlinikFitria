@@ -30,7 +30,7 @@
             <a class="nav-link" href="#">Pasien</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tindakan</a>
+            <a class="nav-link" href=" <?php echo base_url('tindakan') ?>">Tindakan</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('obat'); ?>">Obat</a>

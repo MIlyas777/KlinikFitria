@@ -54,10 +54,10 @@
                             <th><?= $no++; ?></th>
                             <th><?= $d['idtindakan'] ?></th>
                             <th><?= $d['namatindakan'] ?></th>
-                            <th><?= $d['biaya'] ?></th>
+                            <th>Rp. <?php echo number_format($d['biaya'], 0, ',', '.') ?></th>
                             <th>
-                                <a class="btn btn-sm btn-warning" href=Tindakan/edit/<?php echo $d['idtindakan'] ?>"><i class="icon-pencil"></i> EDIT</a>
-                                <a class="btn btn-sm btn-danger" onclick="konfirmasi(<?php echo $d['idtindakan'] ?>)"><i class="icon-trash"></i> DELETE</a>
+                                <a class="btn btn-sm btn-warning" href="Tindakan/edit/<?php echo $d['idtindakan'] ?>"><i class="icon-pencil"></i> EDIT</a>
+                                <a class="btn btn-sm btn-danger" href="Tindakan/delete/<?php echo $d['idtindakan']; ?>" onclick="return konfirmasi('Data ini akan dihapus, apakah anda yakin?')">DELETE</a>
                             </th>
                         </tr>
                     <?php } ?>
