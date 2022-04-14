@@ -8,13 +8,13 @@ public function __construct()
     {
         parent::__construct();
         $this->load->model("Rawat_model");
-        $this->load->library(array('form_validation','session'));
+        $this->load->library(array('cetak_pdf','form_validation','session'));
        
     }
 
  public function index(){
-        $data['rawat'] = $this->Rawat_model->get_rawat();
-      $this->load->view('rawat',$data);
+        $data['rawat'] = $this->Rawat_model->rawat_pasien();
+        $this->load->view('rawat',$data);
     }
 
     public function tambah_rawat(){
@@ -22,6 +22,61 @@ public function __construct()
         $this->load->view('tambah_rawat',$data);
     }     
 
+    public function cetak_pdf(){
+      $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'NOTA PERAWATAN KLINIK FITRIA',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(15,15,'ID',1,0,'C');
+        $pdf->Cell(20,15,'ID Pasien',1,0,'C');
+        $pdf->Cell(60,15,'Nama Pasien',1,0,'C');
+        $pdf->Cell(30,15,'Tanggal Rawat',1,0,'C');
+        $pdf->Cell(30,15,'Total Tindakan',1,0,'C');
+        $pdf->Cell(30,15,'Total Obat',1,1,'C');
+      
+
+        $pdf->SetFont('Arial','',10);
+        $rawat = $this->Rawat_model->rawat_pasien();
+        foreach ($rawat as $row){
+            $pdf->Cell(15,15,$row->idrawat,1,0,'C');
+            $pdf->Cell(20,15,$row->idpasien,1,0,'C');
+            $pdf->Cell(60,15,$row->nama,1,0,'C');
+            $pdf->Cell(30,15,$row->tglrawat,1,0,'C');
+            $pdf->Cell(30,15,"Rp ".number_format($row->totaltindakan, 0, ".", "."),1,0,'C');
+            $pdf->Cell(30,15,"Rp ".number_format($row->totalobat, 0, ".", "."),1,1,'C');
+
+        }
+
+
+        $pdf->SetFont('Arial','I',12);
+        $pdf->Cell(0,16,'* Biaya Pengeluaran',0,1,'L');
+        $pdf->Cell(10,2,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(50,15,'Nama Pasien',1,0,'C');
+        $pdf->Cell(30,15,'Total Harga',1,0,'C');
+        $pdf->Cell(30,15,'Uang Muka',1,0,'C');
+        $pdf->Cell(30,15,'Kekurangan',1,1,'C');
+
+        $pdf->SetFont('Arial','',10);
+        $rawat = $this->Rawat_model->rawat_pasien();
+        foreach ($rawat as $row){
+            $pdf->Cell(50,15,$row->nama,1,0,'C');
+            $pdf->Cell(30,15,"Rp ".number_format($row->totalharga, 0, ".", "."),1,0,'C');
+            $pdf->Cell(30,15,"Rp ".number_format($row->uangmuka, 0, ".", "."),1,0,'C');
+            $pdf->Cell(30,15,"Rp ".number_format($row->kurang, 0, ".", "."),1,1,'C');
+
+        }
+        $pdf->Output();
+
+    }
 
  public function tambah_rawat_proses(){
     $idrawat = $this->input->post('idrawat');
