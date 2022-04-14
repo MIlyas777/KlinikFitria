@@ -18,7 +18,15 @@
         </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-sm btn-success" href="<?php echo base_url('admin/addP') ?>">
+                <b>+ Tambah Data Penerbit</b>
+            </a>
+        </div>
+    </div>
+
+    <div class="row mt-3">
         <div class="col-xs-4 col-xs-offset-4 text-center">
             <!-- pada baris ini jika pada variabel keyword tidak kosong maka akan mengeksekusi untuk menampilkan data yang di minta oleh user sesuai dengan yang dicari -->
             <?php if (!empty($keyword)) { ?>
@@ -48,6 +56,8 @@
                             <th><?= $d['namatindakan'] ?></th>
                             <th><?= $d['biaya'] ?></th>
                             <th>
+                                <a class="btn btn-sm btn-warning" href=Tindakan/edit/<?php echo $d['idtindakan'] ?>"><i class="icon-pencil"></i> EDIT</a>
+                                <a class="btn btn-sm btn-danger" onclick="konfirmasi(<?php echo $d['idtindakan'] ?>)"><i class="icon-trash"></i> DELETE</a>
                             </th>
                         </tr>
                     <?php } ?>

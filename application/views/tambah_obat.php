@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-             <form action="tambah_obat_proses" method="post" enctype="multipart/form-data">
+                            <form action="tambah_obat_proses" method="post" enctype="multipart/form-data">
                                 <div class="mb-3">
                                     <label for="ID_Obat" class="form-label">ID Obat</label>
                                     <input type="text" name="idobat" class="form-control" id="idobat">
@@ -25,9 +25,9 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>  
-            
-          </div>
+                            </form>
+
+                        </div>
                     </div>
 
                 </div>
