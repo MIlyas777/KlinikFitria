@@ -8,7 +8,6 @@ public function __construct()
     {
         parent::__construct();
         $this->load->model("Obat_model");
-        $this->load->helper('url', 'form');
         $this->load->library(array('form_validation','session'));
        
     }
