@@ -20,8 +20,8 @@
 
     <div class="row">
         <div class="col">
-            <a class="btn btn-sm btn-success" href="<?php echo base_url('admin/addP') ?>">
-                <b>+ Tambah Data Penerbit</b>
+            <a class="btn btn-sm btn-success" href="<?php echo base_url('Tindakan/addT') ?>">
+                <b>+ Tambah Data Tindakan</b>
             </a>
         </div>
     </div>

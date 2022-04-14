@@ -1,6 +1,13 @@
 <?php
 class Tindakan extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library(array('session'));
+        $this->load->model(array('modelTindakan'));
+    }
+
     public function index()
     {
 
@@ -17,50 +24,42 @@ class Tindakan extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function edit($a)
-    { //fungsi edit
-        $data['list'] = $this->modelUser->get_detail($a);
-        $this->load->view('header');
-        $this->load->view('users/edit', $data);
-        $this->load->view('footer');
+    function addT()
+    { // fungsi ini digunakan untuk menampilkan halaman Tambah data pada Penerbit dan Buku
+        $this->load->view('template/header');
+        $this->load->view('tambahTindakan');
+        $this->load->view('template/footer');
     }
 
-    // function get_detailB($a)
-    // {
-    //     $this->db->where('id_buku', $a);
-    //     return $this->db->get('buku')->row_array();
-    // }
+    // fungsi ini digunakan untuk memasukkan data yang di input pada halaman tambah data ke database
+    function insert()
+    {
+        if ($this->modelTindakan->insert($this->input->post())) {
+            $this->session->set_flashdata('pesan', 'Data berhasil ditambah');
+            redirect(base_url('tindakan')); //jika dalam pengecekan if berhasil maka baris kode ini dijalankan dan halaman akan diarahkan menuju ke halaman tindakan
+        }
+    }
 
-    // function insertB($a)
-    // {
-    //     $data = [
-    //         'id_buku'      =>  $a['id_buku'],
-    //         'kategori'      =>  $a['kategori'],
-    //         'nama_buku'     =>  $a['nama_buku'],
-    //         'harga'  =>  $a['harga'],
-    //         'stok'    =>  $a['stok'],
-    //         'penerbit'   =>  $a['penerbit']
-    //     ];
-    //     return $this->db->insert('buku', $data);
-    // }
+    function edit($a)
+    {
+        $data['tindakan'] = $this->modelTindakan->get_detail($a);
+        $this->load->view('template/header');
+        $this->load->view('edit_tindakan', $data);
+        $this->load->view('template/footer');
+    }
 
-    // function updateB($a, $id)
-    // {
-    //     $data = [
-    //         'id_buku'      =>  $a['id_buku'],
-    //         'kategori'      =>  $a['kategori'],
-    //         'nama_buku'     =>  $a['nama_buku'],
-    //         'harga'  =>  $a['harga'],
-    //         'stok'    =>  $a['stok'],
-    //         'penerbit'   =>  $a['penerbit']
-    //     ];
-    //     $this->db->where('id_buku', $id);
-    //     return $this->db->update('buku', $data);
-    // }
-
-    // function delete($a)
-    // {
-    //     $this->db->where('id_buku', $a);
-    //     return $this->db->delete('buku');
-    // }
+    // fungsi ini digunakan untuk mengupdate pada data yang ada di database
+    function update($id)
+    {
+        if ($this->modelTindakan->update($this->input->post(), $id)) {
+            $this->session->set_flashdata('pesan', 'Data berhasil diubah');
+            redirect(base_url('tindakan'));
+        }
+    }
+    // fungsi ini digunakan untuk menghapus data yang ada pada database
+    function delete($a)
+    {
+        $this->modelTindakan->delete($a);
+        redirect(base_url('tindakan'));
+    }
 }

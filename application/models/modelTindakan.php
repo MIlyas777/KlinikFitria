@@ -15,4 +15,20 @@ class ModelTindakan extends CI_Model
         }
         return $this->db->get()->result_array();
     }
+
+    function insert($a)
+    {
+        $data = [
+            'idtindakan'      =>  $a['idtindakan'],
+            'namatindakan'     =>  $a['namatindakan'],
+            'biaya'  =>  $a['biaya']
+        ];
+        return $this->db->insert('tindakan', $data);
+    }
+
+    function get_detail($a)
+    {
+        $this->db->where('idtindakan', $a);
+        return $this->db->get('tindakan')->row_array();
+    }
 }
