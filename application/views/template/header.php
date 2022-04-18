@@ -19,9 +19,7 @@
   <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
 <!-- Custom styles for this page -->
   <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
 
 </head>
 <body>
@@ -54,7 +52,7 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Rawat tindakan</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Rawat obat</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url('rawat_obat')?>">Rawat obat</a></li>
           </ul>
         </li>
       </ul>

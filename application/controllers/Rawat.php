@@ -31,6 +31,10 @@ public function __construct()
         $pdf->Cell(0,7,'NOTA PERAWATAN KLINIK FITRIA',0,1,'C');
         $pdf->Cell(10,7,'',0,1);
 
+        $pdf->SetFont('Arial','I',12);
+        $pdf->Cell(0,12,'* Rincian Perawatan',0,1,'L');
+        $pdf->Cell(10,1,'',0,1);
+
         $pdf->SetFont('Arial','B',10);
 
         $pdf->Cell(15,15,'ID',1,0,'C');
@@ -55,8 +59,8 @@ public function __construct()
 
 
         $pdf->SetFont('Arial','I',12);
-        $pdf->Cell(0,16,'* Biaya Pengeluaran',0,1,'L');
-        $pdf->Cell(10,2,'',0,1);
+        $pdf->Cell(0,12,'* Biaya Pengeluaran',0,1,'L');
+        $pdf->Cell(10,1,'',0,1);
 
         $pdf->SetFont('Arial','B',10);
 

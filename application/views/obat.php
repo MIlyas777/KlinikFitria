@@ -17,7 +17,7 @@
                 <?php echo $this->session->flashdata('msg_add_obat'); ?>
         <?php echo $this->session->flashdata('msg_update_obat'); ?>
         <?php echo $this->session->flashdata('msg_del_obat'); ?>
-                    <a href="<?= base_url('Obat/tambah_obat');?>" type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp Tambah Obat</a>
+                    <a href="<?= base_url('Obat/tambah_obat');?>" type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp Tambah</a>
                   <hr>
                     <thead>
                     <tr style="text-align:center;">
