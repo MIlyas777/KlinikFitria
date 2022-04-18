@@ -1,10 +1,6 @@
 <?php
 class Tindakan extends CI_Controller
 {
-<<<<<<< HEAD
-    public function index()
-    {
-=======
     public function __construct()
     {
         parent::__construct();
@@ -15,7 +11,6 @@ class Tindakan extends CI_Controller
     public function index()
     {
 
->>>>>>> 692ddb70fd460504aa0bc149c844277e8513b77b
         $this->load->model('ModelTindakan');
         $keyword = $this->input->get('keyword');
         $data = $this->ModelTindakan->search($keyword);
@@ -28,8 +23,6 @@ class Tindakan extends CI_Controller
         $this->load->view('tindakan', $data);
         $this->load->view('template/footer');
     }
-<<<<<<< HEAD
-=======
 
     function addT()
     { // fungsi ini digunakan untuk menampilkan halaman Tambah data pada Penerbit dan Buku
@@ -69,5 +62,4 @@ class Tindakan extends CI_Controller
         $this->modelTindakan->delete($a);
         redirect(base_url('tindakan'));
     }
->>>>>>> 692ddb70fd460504aa0bc149c844277e8513b77b
 }

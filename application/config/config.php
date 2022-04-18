@@ -23,11 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-<<<<<<< HEAD
-$config['base_url'] = 'http://localhost/KlinikFitria';
-=======
 $config['base_url'] = 'http://localhost/KlinikFitria/';
->>>>>>> 692ddb70fd460504aa0bc149c844277e8513b77b
 
 /*
 |--------------------------------------------------------------------------

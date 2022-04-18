@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-             <form action="tambah_rawat_proses" method="post" enctype="multipart/form-data">
+                            <form action="tambah_rawat_proses" method="post" enctype="multipart/form-data">
                                 <div class="mb-3">
                                     <label for="ID_Rawat" class="form-label">ID Perawatan</label>
                                     <input type="text" name="idrawat" class="form-control" id="idrawat">
@@ -33,21 +33,21 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="ID_Pasien" class="form-label">ID Pasien</label>
-                                     <input type="text" name="idpasien" class="form-control" id="idpasien" list="suggestions1" >
-                               <datalist id="suggestions1">
-                                          <select class="form-control" id="category_name" name="category_name">
-                            <option selected="0"></option>
-                            <?php foreach($pasien as $row) : ?>
-                              <option value="<?php echo $row->idpasien;?>"> <?php echo $row->nama;?></option>
-                            <?php endforeach; ?>
-                            </select>
-                                  </datalist>
+                                    <input type="text" name="idpasien" class="form-control" id="idpasien" list="suggestions1">
+                                    <datalist id="suggestions1">
+                                        <select class="form-control" id="category_name" name="category_name">
+                                            <option selected="0"></option>
+                                            <?php foreach ($pasien as $row) : ?>
+                                                <option value="<?php echo $row->idpasien; ?>"> <?php echo $row->nama; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </datalist>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>  
-            
-          </div>
+                            </form>
+
+                        </div>
                     </div>
 
                 </div>
