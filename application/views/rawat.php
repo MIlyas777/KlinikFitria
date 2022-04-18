@@ -20,11 +20,11 @@
   </div>
   <div class="card-body">
       <div class="form-group row">
-                    <div class="col-sm-10">
+                    <div class="col-sm-8">
   <a href="<?= base_url('rawat/tambah_rawat');?>" type="button" class="btn btn-success"><i class="icon-plus"></i>&nbsp Tambah Rawat</a>
 </div>
-<div class="col-sm-2">
-     <a href="<?= base_url('rawat/cetak_pdf');?>" type="button" class="btn btn-primary"><i class="icon-download"></i>&nbsp Cetak Nota</a>
+<div class="col-sm-4">
+     <a href="<?= base_url('rawat/cetak_pdf');?>" type="button" class="btn btn-primary"><i class="icon-download-alt"></i>&nbsp Cetak Nota</a>
 </div>
 </div> 
  
@@ -38,6 +38,7 @@
       <?php echo $this->session->flashdata('msg_add_rawat'); ?>
       <?php echo $this->session->flashdata('msg_update_rawat'); ?>
       <?php echo $this->session->flashdata('msg_del_rawat'); ?>
+        <div class="table-responsive">
                       <table class="table table-bordered table-striped">
                       <thead>
                       <tr style="text-align:center;">
@@ -67,12 +68,16 @@
                 <td style="background-color:red; color:white;"><?php echo $row->kurang?></td>
                 <td><?php echo $row->nama?></td>
                 <td style="text-align:center;">
+
                     <a href="rawat/edit_rawat?id=<?php echo htmlspecialchars($row->idrawat) ?>" type="button" class="btn btn-warning btn-sm"><i class="icon-pencil"></i>&nbsp Edit</a>  
-                    <a href="rawat/delete_rawat?id=<?php echo htmlspecialchars($row->idrawat) ?>" title="delete" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item')"><i class="icon-trash"></i>&nbspDelete</a></td>
+ 
+                    <a href="rawat/delete_rawat?id=<?php echo htmlspecialchars($row->idrawat) ?>" title="delete" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item')"><i class="icon-trash"></i>&nbspDelete</a>
+                </td>
       </tr>
                 <?php }?>
                             </tbody>
                   </table>
+</div>
                   <p style="color:blue;">*<i>Total Harga berdasarkan Total Obat + Total Tindakan</i></p>
             <p style="color:red;">*<i>Biaya Kekurangan berdasarkan Total Harga - Uang Muka</i></p>
     </blockquote>
