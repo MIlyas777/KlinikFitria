@@ -50,8 +50,8 @@ public function __construct()
             $pdf->Cell(30,15,$row->tglrawat,1,0,'C');
             $pdf->Cell(30,15,"Rp ".number_format($row->totaltindakan, 0, ".", "."),1,0,'C');
             $pdf->Cell(30,15,"Rp ".number_format($row->totalobat, 0, ".", "."),1,1,'C');
-
         }
+
 
 
         $pdf->SetFont('Arial','I',12);
