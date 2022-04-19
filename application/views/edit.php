@@ -12,17 +12,17 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-10 mx-auto">
-                            <form action="<?= base_url('/admin/insert_penerbit') ?>" method="POST" enctype="multipart/form-data">
+                        <form action="<?= base_url('Pasien/update_pasien') ?>" method="POST" enctype="multipart/form-data">
                                 <label for="idpasien">ID Pasien:</label>
-                                <input type="text" name="id_penerbit" id="id_penerbit" class="form-control">
+                                <input type="text" name="idpasien" id="idpasien" value="<?=$pasien['idpasien']?>" class="form-control" required>
                                 <label for="nama">Nama:</label>
-                                <input type="text" name="nama" id="nama" class="form-control">
+                                <input type="text" name="nama" id="nama" value="<?=$pasien['nama']?>" class="form-control">
                                 <label for="alamat">Alamat:</label>
-                                <input type="text" name="alamat" id="alamat" class="form-control">
+                                <input type="alamat" name="alamat" id="alamat" value="<?=$pasien['alamat']?>" class="form-control" required>
                                 <label for="tgllahir">Tanggal lahir:</label>
-                                <input type="text" name="kota" id="kota" class="form-control">
+                                <input type="text" name="tgllahir" id="tgllahir" value="<?=$pasien['tgllahir']?>" class="form-control" required>
                                 <label for="notelp">No Telepon:</label>
-                                <input type="text" name="telepon" id="telepon" class="form-control">
+                                <input type="text" name="notelp" id="notelp" value="<?=$pasien['notelp']?>"class="form-control" required>
                                 <button type="submit" class="btn btn-primary mt-3">Simpan</button>
                             </form>
                         </div>
