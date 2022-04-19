@@ -25,16 +25,24 @@ class RawatObat_model extends CI_Model
     return $query->result();
     }
    
-    function perawatan_obat() { 
-     $this->db->select('*');
-      $this->db->order_by('idrawatobat');
-      return $this->db->from('rawatobat')
-            ->join('rawat', 'rawat.idrawat=rawatobat.idrawat')
-            ->join('obat', 'obat.idobat=rawatobat.idobat')
-          ->get()
-          ->result();
-    }  
+//     public function perawatan_obat() { 
+//      $this->db->select('*');
+//       $this->db->order_by('idrawatobat');
+//       return $this->db->from('rawatobat')
+//       ->join('rawat', 'rawatobat.idrawat=rawat.idrawat', 'RIGHT')
+//       ->join('obat', 'obat.idobat=rawatobat.idobat', 'RIGHT')
+//           ->get()
+//           ->result();
+//     }  
 
+public function perawatan_obat(){
+$this->db->select('*');
+ $this->db->from('rawatobat');
+ $this->db->join('rawat','rawatobat.idrawat=rawat.idrawat', 'RIGHT');
+ $this->db->join('obat', 'rawatobat.idobat=obat.idobat', 'RIGHT');
+ $query = $this->db->get();
+ return $query->result();
+}
 
     public function get_single_row_rawatobat($idrawatobat)
      {

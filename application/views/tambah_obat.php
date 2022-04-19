@@ -1,11 +1,13 @@
 <?php $this->load->view('template/header'); ?>
 
+<title>Tambah Obat</title>
+
 <div class="container mt-3">
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h1>Tambah Obat</h1>
+                    <h1 style="color:black">Tambah Obat</h1>
                 </div>
                 <div class="card-body">
                     <div class="row">

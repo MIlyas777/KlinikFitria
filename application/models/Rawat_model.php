@@ -13,6 +13,14 @@ class Rawat_model extends CI_Model
     return $query->result();
     }
 
+    public function get_rawatpasien(){
+$this->db->select('*');
+ $this->db->from('rawat');
+ $this->db->join('pasien', 'rawat.idpasien=pasien.idpasien', 'RIGHT');
+ $query = $this->db->get();
+ return $query->result();
+}
+
  public function get_rawat()
     {
     $query = $this->db->query("select * from rawat");

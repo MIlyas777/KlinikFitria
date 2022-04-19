@@ -1,18 +1,19 @@
 <?php $this->load->view('template/header'); ?>
 
+<title>Tambah Rawat</title>
 
 <div class="container mt-3">
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h1>Tambah Perawatan</h1>
+                    <h1 style="color:black">Tambah Perawatan</h1>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
              <form action="tambah_rawat_proses" method="post" enctype="multipart/form-data">
-                               <h4>Detail Perawatan</h4>
+                               <h4 style="color:black">Detail Perawatan</h4>
              <div class="form-group row">
                  <div class="col-sm-6">
                             <div class="mb-3">
@@ -27,7 +28,7 @@
                                <datalist id="suggestions1">
                                           <select class="form-control" id="category_name" name="category_name">
                             <option selected="0"></option>
-                            <?php foreach($pasien as $row) : ?>
+                            <?php foreach($rawat as $row) : ?>
                               <option value="<?php echo $row->idpasien;?>"> <?php echo $row->nama;?></option>
                             <?php endforeach; ?>
                             </select>
@@ -42,7 +43,7 @@
                                 </div>
                                 
                                 <br>
-                                <h4>Biaya Perawatan</h4>
+                                <h4 style="color:black">Biaya Perawatan</h4>
                                 
                                  <div class="form-group row">
                  <div class="col-sm-4">

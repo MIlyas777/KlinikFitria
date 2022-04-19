@@ -1,5 +1,7 @@
 <?php $this->load->view('template/header'); ?>
 
+<title>Edit Obat</title>
+
 <div class="container mt-3">
     <div class="row">
         <div class="col-12">
@@ -11,10 +13,10 @@
                     <div class="row">
                         <div class="col-12">
             <form action="edit_obat_proses" method="post" enctype="multipart/form-data">
-                                <!-- <div class="mb-3">
+                                <div class="mb-3">
                                     <label for="ID_Obat" class="form-label">ID Obat</label>
-                                    <input value ="<?php echo htmlspecialchars($obat->idobat); ?>" type="text" name="idobat" class="form-control" id="idobat">
-                                </div> -->
+                                    <input value ="<?php echo htmlspecialchars($obat->idobat); ?>" type="text" name="idobat" class="form-control" id="idobat" readonly>
+                                </div>
                                 <div class="mb-3">
                                     <label for="Nama" class="form-label">Nama Obat</label>
                                     <input value ="<?php echo htmlspecialchars($obat->nama); ?>" type="text" name="nama" class="form-control" id="nama">

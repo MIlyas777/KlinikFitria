@@ -18,7 +18,7 @@ public function __construct()
     }
 
       public function tambah_rawatobat(){
-          $data['obat'] = $this->RawatObat_model->get_obat();
+          $data['rawatobat'] = $this->RawatObat_model->perawatan_obat();
         $this->load->view('tambah_rawatobat',$data);
     }     
 
